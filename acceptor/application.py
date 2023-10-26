@@ -41,16 +41,17 @@ class Application(fix.Application):
         msgType = message.getHeader().getField(fix.MsgType())
 
         # Handle specific message types
-        if msgType.getValue() == "A":  # "A" represents Logon
+        if msgType == "A":  # "A" represents Logon
             # Process Logon message
             pass
-        elif msgType.getValue() == "5":  # "5" represents Logout
+        elif msgType == "5":  # "5" represents Logout
             # Process Logout message
             pass
         else:
             # Handle other administrative messages
             pass
         return
+
 
     # You can modify or add custom fields to the outgoing message here
     
