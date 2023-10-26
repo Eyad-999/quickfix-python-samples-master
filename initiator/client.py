@@ -3,7 +3,7 @@ import sys
 import argparse
 import quickfix
 from application import Application
-import ResendRequestHandler  # Import your custom ResendRequestHandler class
+
 
 def main(config_file):
     """Main"""
