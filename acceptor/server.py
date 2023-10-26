@@ -2,6 +2,7 @@
 import sys
 import argparse
 import quickfix
+sys.path.append("C:/Users/eyad.hatem/Desktop/FIX/quickfix-python-samples-master/acceptor")
 from application import Application
 
 def main(config_file):

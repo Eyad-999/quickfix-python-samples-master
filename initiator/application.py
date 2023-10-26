@@ -13,6 +13,37 @@ __SOH__ = chr(1)
 setup_logger('logfix', 'Logs/message.log')
 logfix = logging.getLogger('logfix')
 
+class ResendRequestHandler(fix.Application):
+    def onCreate(self, sessionID):
+        pass
+
+    def onLogon(self, sessionID):
+        pass
+
+    def onLogout(self, sessionID):
+        pass
+
+    def toAdmin(self, message, sessionID):
+        msgType = fix.MsgType()
+        message.getHeader().getField(msgType)
+
+        if msgType.getValue() == fix.MsgType_ResendRequest:
+            self.onResendRequest(message, sessionID)
+
+    def fromAdmin(self, message, sessionID):
+        pass
+
+    def toApp(self, message, sessionID):
+        pass
+
+    def fromApp(self, message, sessionID):
+        pass
+
+    def onResendRequest(self, message, sessionID):
+        # Handle Resend Request messages here
+        # You can access fields of the Resend Request message and take appropriate action
+        pass
+
 
 class Application(fix.Application):
     """FIX Application"""
@@ -57,40 +88,7 @@ class Application(fix.Application):
     	self.execID += 1
     	return str(self.execID).zfill(5)
         
-class ResendRequestHandler(fix.Application):
-    def onCreate(self, sessionID):
-        pass
 
-    def onLogon(self, sessionID):
-        pass
-
-    def onLogout(self, sessionID):
-        pass
-
-    def toAdmin(self, message, sessionID):
-        msgType = fix.MsgType()
-        message.getHeader().getField(msgType)
-
-        if msgType.getValue() == fix.MsgType_ResendRequest:
-            self.onResendRequest(message, sessionID)
-
-    def fromAdmin(self, message, sessionID):
-        pass
-
-    def toApp(self, message, sessionID):
-        pass
-
-    def fromApp(self, message, sessionID):
-        pass
-
-    def onResendRequest(self, message, sessionID):
-        # Handle Resend Request messages here
-        # You can access fields of the Resend Request message and take appropriate action
-        pass
-
-
-
-     
     def put_new_order(self):
         """Request sample new order single"""
         message = fix.message()
