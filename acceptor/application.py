@@ -126,8 +126,8 @@ class Application(fix.Application):
         self.execID += 1
         return str(self.execID).zfill(5)
 
-def run(self):
-    """Run"""
-    while True:  # Use 'True' instead of '1' for an infinite loop
-        time.sleep(2)
+    def run(self):
+        """Run"""
+        while True:  # Use 'True' instead of '1' for an infinite loop
+            time.sleep(2)
 
