@@ -87,6 +87,16 @@ class Application(fix.Application):
     def genExecID(self):
     	self.execID += 1
     	return str(self.execID).zfill(5)
+
+    def resetSequenceNumber(self):
+    try:
+        fix.Session.reset(self.sessionID)
+        print("Sequence number reset for session '%s'." % self.sessionID.toString())
+    except fix.SessionNotFound as e:
+        print("Session not found: %s" % e)
+    except fix.InvalidState as e:
+        print("Invalid state for sequence number reset: %s" % e)
+    
         
 
     def put_new_order(self):
@@ -120,7 +130,7 @@ class Application(fix.Application):
                 print("Done: Put New Order\n")
                 continue
             if  options == '2':
-                sys.exit(0)
+                 self.resetSequenceNumber()
             else:
                 print("Valid input is 1 for order, 2 for exit\n")
             time.sleep(2)
