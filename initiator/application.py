@@ -99,7 +99,7 @@ class Application(fix.Application):
         message.setField(fix.ClOrdID(self.genExecID())) #11 = Unique Sequence Number
         message.setField(fix.Side(fix.Side_BUY)) #43 = 1 BUY 
         message.setField(fix.Symbol("MSFT")) #55 = MSFT
-        message.setField(fix.OrderQty(100)) #38 = 1000
+        message.setField(fix.OrderQty(1)) #38 = 1000
         message.setField(fix.Price(100))
         message.setField(fix.OrdType(fix.OrdType_LIMIT)) #40=2 Limit Order 
         message.setField(fix.HandlInst(fix.HandlInst_MANUAL_ORDER_BEST_EXECUTION)) #21 = 3
