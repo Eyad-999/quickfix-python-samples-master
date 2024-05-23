@@ -41,6 +41,3 @@ services:
 
 networks:
   quickfix:
-
-
-  
