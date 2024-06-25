@@ -7,7 +7,7 @@ __SOH__ = chr(1)
 
 setup_logger('logfix', 'Logs/message.log')
 logfix = logging.getLogger('logfix')
-jjj
+
 class Application(fix.Application):
     """FIX Application"""
     orderID = 0
